@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const App = () => {
+  // range
   const [range, setRange] = useState({ start: 1, end: 100 });
 
   const handleChange = (e) => {
@@ -9,16 +10,19 @@ const App = () => {
   };
 
   const generateOutput = () => {
+    let index = '';
     const output = [];
     for (let i = range.start; i <= range.end; i++) {
+      index = '' + i + ' => ';
+
       if (i % 3 === 0 && i % 5 === 0) {
-        output.push('RobotICT');
+        output.push(index + 'RobotICT');
       } else if (i % 3 === 0) {
-        output.push('Robot');
+        output.push(index + 'Robot');
       } else if (i % 5 === 0) {
-        output.push('ICT');
+        output.push(index + 'ICT');
       } else {
-        output.push(i);
+        output.push(index + i);
       }
     }
     return output;
@@ -26,7 +30,7 @@ const App = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>Robot ICT App</h1>
+      <h1>Meteor Test App For Robot ICT</h1>
       <div>
         <label>
           Start:
@@ -49,7 +53,7 @@ const App = () => {
       </div>
       <ul>
         {generateOutput().map((item, index) => (
-          <li key={index}>{index} =&gt; {item}</li>
+          <li key={index}>{item}</li>
         ))}
       </ul>
     </div>
